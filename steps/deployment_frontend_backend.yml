@@ -1,0 +1,53 @@
+id: newrelic_observability_configure_agent
+hints: []
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: head-of-rd
+      messages:
+      - text: OK, now let's configure the backend properly, and make sure that on production you're connecting to you backend: `https://${user.backendHerokuAppName}.herokuapp.com`
+      - text: first we need to change the code to take the backend URL from an env var, so let's change the frontend code and open a PR
+      - delay: 1000
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_opened:
+          do:
+          - actionId: github_pr_comment
+            params:
+              person: head-of-rd
+              message: Checking now.
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+            - conditionId: github_is_file_modified
+              paramsFramework:
+                node:
+                  fileName: frontend/src/agent.js
+
+            then:
+              do:
+              - actionId: bot_message
+                params:
+                  person: head-of-rd
+                  messages:
+                  - text: Looking good! You can merge the PR now.
+                    delay: 1000
+              - actionId: github_pr_approve
+                params:
+                  person: head-of-rd
+                  message: Looking good! You can merge the PR now.
+
+            else:
+              - actionId: github_pr_reject
+                params:
+                  person: devops
+                  message: Are you sure you changed the right file?
+
+        github_pr_merged:
+          do:
+          - actionId: finish_step
