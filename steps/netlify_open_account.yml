@@ -1,0 +1,49 @@
+id: newrelic_logs_configure_heroku_logs
+hints:
+- Make sure you're chosing the ObelusFamily organization when choosing the Github repo
+- App name shuold be somting like that: XXXXX1-YYYYY2-ZZZZZ3
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: head-of-rd
+      messages:
+      - text: We now going to deploy our frontend to Netlify
+      - text: Go create a new free account in Netlify (or use your exsiting one) and create a new site.
+        delay: 1000
+      - text: We're going to use our exiting code so import and exiting project from Github, and choose our {user.repoName} repo.
+        delay: 1000
+      - text: For now you can ignore the build settings and just leave main as the branch to deploy
+        delay: 1000
+      - text: Once you done, please send me your app name
+        delay: 1000
+trigger:
+  type: user_message_to_devops
+  flowNode:
+    do:
+    - actionId: netlify_configure
+      name: netlify_configure
+      params:
+        netlifyApp: "${userMessageText}"
+    if:
+      conditions:
+      - conditionId: action_success
+        params:
+          name: netlify_configure
+      then:
+        do:
+        - actionId: bot_message
+          params:
+            person: devops
+            messages:
+            - text: Great, let's move on
+              delay: 1000
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+          params:
+            person: devops
+            messages:
+            - text: Looks like a wrong format, are you sure?
+              delay: 1000
