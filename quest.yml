@@ -5,6 +5,7 @@ description: Frontend deployment with Netlify
 steps:
 - netlify_open_account
 - deployment_frontend_backend
+- deployment_frontend_backend_env
 - deployment_frontend_configure
 - deployment_frontend_push
 prerequisites:
