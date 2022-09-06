@@ -1,0 +1,31 @@
+id: deployment_frontend_backend_env
+hints: []
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: head-of-rd
+      messages:
+      - text: Now that we configure the agent properly, let's put the right value for the backend that we deployed: `https://${user.backendHerokuAppName}.herokuapp.com`
+      - text: Let me know when you finished
+trigger:
+  type: user_message_to_rd
+  flowNode:
+    if:
+      conditions:
+      - conditionId: is_user_message_text_ready_to_continue
+      then:
+        do:
+        - actionId: bot_message
+          params:
+            person: head-of-rd
+            messages:
+            - text: Awsome, let's move to the next step
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+          params:
+            person: head-of-rd
+            messages:
+            - text: OK, let me know when you're done or if you need any help.
