@@ -1,4 +1,4 @@
-id: newrelic_observability_configure_agent
+id: deployment_frontend_backend
 hints: []
 startFlow:
   do:
