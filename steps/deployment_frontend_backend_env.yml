@@ -6,26 +6,31 @@ startFlow:
     params:
       person: head-of-rd
       messages:
-      - text: "Now that we configure the agent properly, let's put the right value for the backend that we deployed: `https://${user.backendHerokuAppName}.herokuapp.com`"
-      - text: Let me know when you finished
+      - text: Oh, looks like the app isn't connected to the right backend, take a look on the network tab.
+      - text: "We need to frontend to connect to the backend that we deployed: `https://${user.backendHerokuAppName}.herokuapp.com`"
+        delay: 1000
+      - text: "The easier way to do it is to use an env variable, in our case we'll use something like `BACKEND_URL`"
+        delay: 1000
+      - text: Let me know once you finish set the env variable in the Netlify app settings.
+        delay: 1000
 trigger:
   type: user_message_to_head-of-rd
   flowNode:
     if:
       conditions:
-      - conditionId: is_user_message_text_ready_to_continue
+        - conditionId: is_user_message_text_ready_to_continue
       then:
         do:
-        - actionId: bot_message
-          params:
-            person: head-of-rd
-            messages:
-            - text: Awsome, let's move to the next step
-        - actionId: finish_step
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: Awsome, let's move to the next step
+          - actionId: finish_step
       else:
         do:
-        - actionId: bot_message
-          params:
-            person: head-of-rd
-            messages:
-            - text: OK, let me know when you're done or if you need any help.
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+              - text: OK, let me know when you're done or if you need any help.
