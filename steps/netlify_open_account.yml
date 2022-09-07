@@ -1,4 +1,4 @@
-id: newrelic_logs_configure_heroku_logs
+id: netlify_open_account
 hints:
 - Make sure you're chosing the ObelusFamily organization when choosing the Github repo
 - App name shuold be somting like that: XXXXX1-YYYYY2-ZZZZZ3
