@@ -11,7 +11,7 @@ steps:
 - deployment_frontend_backend_env
 - deployment_frontend_configure
 duration: 1
-questDependency: backend_deployment
+questDependency: deployment_backend
 slogan: Netlify
 messages:
   questStarted:
