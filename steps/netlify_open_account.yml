@@ -21,7 +21,7 @@ trigger:
   type: user_message_to_devops
   flowNode:
     do:
-    - actionId: netlify_configure
+    - actionId: netlify_configure_app
       name: netlify_configure
       params:
         netlifyApp: "${userMessageText}"
