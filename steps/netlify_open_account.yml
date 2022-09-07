@@ -34,7 +34,7 @@ trigger:
         do:
         - actionId: bot_message
           params:
-            person: devops
+            person: head-of-rd
             messages:
             - text: Great, let's move on
               delay: 1000
@@ -43,7 +43,7 @@ trigger:
         do:
         - actionId: bot_message
           params:
-            person: devops
+            person: head-of-rd
             messages:
             - text: Looks like a wrong format, are you sure?
               delay: 1000
