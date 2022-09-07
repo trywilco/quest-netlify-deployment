@@ -6,8 +6,8 @@ startFlow:
     params:
       person: head-of-rd
       messages:
-      - text: OK, now let's configure the backend properly, since we want our frontend to connect to *our* production backend, since it might change from time to time and we want to be as flexiable as possible, so we want to get backend url from an environment variable.
-      - text: So let's change the frontend code and open a PR
+      - text: OK, so we set up everything, now we need to change the code accordingally, let's change the code to use the env variable we just set.
+      - text: So let's change the frontend code and open a PR.
         delay: 1000
 trigger:
   type: github_pr_lifecycle_status
@@ -36,12 +36,11 @@ trigger:
                   person: head-of-rd
                   messages:
                   - text: Looking good! You can merge the PR now.
-                    delay: 1000
               - actionId: github_pr_approve
                 params:
                   person: head-of-rd
-                  message: Looking good! You can merge the PR now.
-
+                  message: Looking good! You can merge the PR now. |
+                           Oh, sweet! we also have a Netlify Deploy Preview where we can see our code before deploying it, how cool is this! 
             else:
               - actionId: github_pr_reject
                 params:
@@ -50,4 +49,4 @@ trigger:
 
         github_pr_merged:
           do:
-          - actionId: finish_step
+            - actionId: finish_step
