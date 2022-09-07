@@ -7,9 +7,9 @@ skills:
 - cloud
 steps:
 - netlify_open_account
-- deployment_frontend_backend
-- deployment_frontend_backend_env
 - deployment_frontend_configure
+- deployment_frontend_backend_env
+- deployment_frontend_backend
 duration: 1
 questDependency: deployment_backend
 slogan: Netlify
