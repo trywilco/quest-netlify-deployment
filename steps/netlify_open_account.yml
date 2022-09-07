@@ -13,7 +13,7 @@ startFlow:
         delay: 1000
       - text: We're going to use our exiting code so import and exiting project from Github, and choose our ${user.repoName} repo.
         delay: 1000
-      - text: For now you can ignore the build settings and just leave main as the branch to deploy
+      - text: We're going to configure the build settings in a minute, so you can skip it for now.
         delay: 1000
       - text: Once you done, please send me your app name
         delay: 1000
