@@ -29,7 +29,7 @@ trigger:
               person: head-of-rd
               messages:
                 - text: That was quick, let me check...
-                - delay: 1000
+                  delay: 1000
           - actionId: network_find_selector
             name: card_selector
             params:
