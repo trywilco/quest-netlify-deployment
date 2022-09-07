@@ -16,7 +16,7 @@ messages:
   questStarted:
     person: head-of-rd
     messages:
-      - text: You know the drill - before you do anything else, please **run the following command** on your repo: `${scriptCommand}`, and **let me know** once you're done.
+      - text: "You know the drill - before you do anything else, please **run the following command** on your repo: `${scriptCommand}`, and **let me know** once you're done."
         delay: 1000
   questStartedNotReady:
     person: head-of-rd
