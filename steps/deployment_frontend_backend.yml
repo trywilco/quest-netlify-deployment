@@ -8,7 +8,7 @@ startFlow:
       messages:
       - text: OK, now let's configure the backend properly, since we want our frontend to connect to *our* production backend, since it might change from time to time and we want to be as flexiable as possible, so we want to get backend url from an environment variable.
       - text: So let's change the frontend code and open a PR
-      - delay: 1000
+        delay: 1000
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
