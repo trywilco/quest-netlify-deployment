@@ -3,6 +3,8 @@ title: Frontend deployment with Netlify
 level: intermediate
 description: Frontend deployment with Netlify
 skills:
+- frontend
+- cloud
 steps:
 - netlify_open_account
 - deployment_frontend_backend
