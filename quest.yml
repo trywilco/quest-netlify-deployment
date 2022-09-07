@@ -7,7 +7,6 @@ steps:
 - deployment_frontend_backend
 - deployment_frontend_backend_env
 - deployment_frontend_configure
-- deployment_frontend_push
 prerequisites:
 - heroku_backend
 duration: 1
