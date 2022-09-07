@@ -17,7 +17,7 @@ startFlow:
           - text: Once you configure it properly, trigger a new deploy, and you suppose to see the site working, let me know when you're ready
             delay: 1000
 trigger:
-  type: user_message_to_rd
+  type: user_message_to_head-of-rd
   flowNode:
     if:
       conditions:
