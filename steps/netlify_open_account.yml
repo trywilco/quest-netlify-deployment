@@ -1,7 +1,7 @@
 id: netlify_open_account
 hints:
 - Make sure you're chosing the ObelusFamily organization when choosing the Github repo
-- App name shuold be somting like that: XXXXX1-YYYYY2-ZZZZZ3
+- "App name shuold be somting like that: XXXXX1-YYYYY2-ZZZZZ3"
 startFlow:
   do:
   - actionId: bot_message
