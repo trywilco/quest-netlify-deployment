@@ -16,14 +16,14 @@ messages:
   questStarted:
     person: head-of-rd
     messages:
-    - text: You know the drill - before you do anything else, please **run the following command** on your repo: `${scriptCommand}`, and **let me know** once you're done.
-      delay: 1000
+      - text: You know the drill - before you do anything else, please **run the following command** on your repo: `${scriptCommand}`, and **let me know** once you're done.
+        delay: 1000
   questStartedNotReady:
     person: head-of-rd
     messages:
-    - text: Let me know when you are ready.
+      - text: Let me know when you are ready.
   questFinished:
     person: head-of-rd
     messages:
-    - text: Amazing job. There’s so much we can achieve, so **[click here](${platform.home})** when you're ready for your next project :)
-      delay: 2500
+      - text: Amazing job. There’s so much we can achieve, so **[click here](${platform.home})** when you're ready for your next project :)
+        delay: 2500
