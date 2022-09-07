@@ -2,13 +2,12 @@ id: frontend_deployment_netlify
 title: Frontend deployment with Netlify
 level: intermediate
 description: Frontend deployment with Netlify
+skills:
 steps:
 - netlify_open_account
 - deployment_frontend_backend
 - deployment_frontend_backend_env
 - deployment_frontend_configure
-prerequisites:
-- heroku_backend
 duration: 1
 questDependency: backend_deployment
 slogan: Netlify
