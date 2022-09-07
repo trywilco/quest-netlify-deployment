@@ -1,0 +1,71 @@
+id: deployment_frontend_configure
+hints:
+  - Since we're using mono repo so the base directory shuoldn't start from the root directory, but the `frontend` dir
+  - To build the app we shuold use `yarn build`
+  - After the build, the published website should sits in the `frontend/build` directory
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+          - text: So, as you've probably figured out by now, since we’re using a mono repo, we need to **tell Netlify how to build our frontend application**.
+          - text: Luckily for you, Netlify make it very easy for us to configure it.
+            delay: 1000
+          - text: You can configure it under `build settings` in the site settings.
+            delay: 1000
+          - text: Once you configure it properly, trigger a new deploy, and you suppose to see the site working, let me know when you're ready
+            delay: 1000
+trigger:
+  type: user_message_to_rd
+  flowNode:
+    if:
+      conditions:
+        - conditionId: is_user_message_text_ready_to_continue
+        then:
+          do:
+            - actionId: network_find_selector
+              name: card_selector
+              params:
+                url: https://${user.netlifyApp}.netlify.app
+                selector: .card-title
+                
+            - actionId: network_find_selector
+              name: no_item_selector
+              params:
+                url: https://${user.netlifyApp}.netlify.app
+                selector: .no-items
+
+          if:
+            conditions:
+              - conditionId: is_falsy
+                value: ${card_selector.value.innerHTML}
+              - conditionId: is_falsy
+                value: ${no_item_selector.value.innerHTML}
+                
+            then:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: Umm... I tried to access [frontend app](https://${user.netlifyApp}.netlify.app) but didn’t get a valid response, try again.
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                      - text: Well then, that’s it - that’s the end of this dib.
+                      - text: If I may add, you did a beautiful job! You’ve probably earned a long coffee break, which will totally be deducted from your bonus but don’t let it stop you.
+                        delay: 1700
+                      - text: So, you know the drill - take your time, drink something, stretch your body, and [another project](${platform.home}) once you’re ready for your next assignment.
+                        delay: 1300
+                - actionId: finish_step
+        else:
+          do:
+            - actionId: bot_message
+              params:
+                person: head-of-rd
+                messages:
+                  - text: OK, let me know when you're done or if you need any help.
