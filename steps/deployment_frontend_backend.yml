@@ -39,7 +39,8 @@ trigger:
               - actionId: github_pr_approve
                 params:
                   person: head-of-rd
-                  message: Looking good! You can merge the PR now. |
+                  message: |
+                           Looking good! You can merge the PR now.
                            Oh, sweet! we also have a Netlify Deploy Preview where we can see our code before deploying it, how cool is this! 
             else:
               - actionId: github_pr_reject
@@ -49,4 +50,13 @@ trigger:
 
         github_pr_merged:
           do:
+            - actionId: bot_message
+                params:
+                  person: head-of-rd
+                  messages:
+                    - text: Well then, that’s it - that’s the end of this dib.
+                    - text: If I may add, you did a beautiful job! You’ve probably earned a long coffee break, which will totally be deducted from your bonus but don’t let it stop you.
+                      delay: 1700
+                    - text: So, you know the drill - take your time, drink something, stretch your body, and [another project](${platform.home}) once you’re ready for your next assignment.
+                      delay: 1300
             - actionId: finish_step
