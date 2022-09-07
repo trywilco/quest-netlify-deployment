@@ -24,6 +24,12 @@ trigger:
         - conditionId: is_user_message_text_ready_to_continue
       then:
         do:
+          - actionId: bot_message
+            params:
+              person: head-of-rd
+              messages:
+                - text: That was quick, let me check...
+                - delay: 1000
           - actionId: network_find_selector
             name: card_selector
             params:
@@ -39,9 +45,11 @@ trigger:
         if:
           conditions:
             - conditionId: is_falsy
-              value: ${outputs.card_selector.value}
+              params:
+                value: ${outputs.card_selector.value}
             - conditionId: is_falsy
-              value: ${outputs.no_item_selector.value}
+              params:
+                value: ${outputs.no_item_selector.value}
 
           then:
             do:
