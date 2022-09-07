@@ -9,7 +9,7 @@ startFlow:
       - text: "Now that we configure the agent properly, let's put the right value for the backend that we deployed: `https://${user.backendHerokuAppName}.herokuapp.com`"
       - text: Let me know when you finished
 trigger:
-  type: user_message_to_rd
+  type: user_message_to_head-of-rd
   flowNode:
     if:
       conditions:
