@@ -18,7 +18,7 @@ startFlow:
       - text: Once you done, please send me your app name
         delay: 1000
 trigger:
-  type: user_message_to_rd
+  type: user_message_to_head-of-rd
   flowNode:
     do:
     - actionId: netlify_configure_app
