@@ -11,7 +11,7 @@ startFlow:
       - text: We now going to deploy our frontend to Netlify
       - text: Go create a new free account in Netlify (or use your exsiting one) and create a new site.
         delay: 1000
-      - text: We're going to use our exiting code so import and exiting project from Github, and choose our {user.repoName} repo.
+      - text: We're going to use our exiting code so import and exiting project from Github, and choose our ${user.repoName} repo.
         delay: 1000
       - text: For now you can ignore the build settings and just leave main as the branch to deploy
         delay: 1000
