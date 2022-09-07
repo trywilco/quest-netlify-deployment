@@ -39,9 +39,9 @@ trigger:
         if:
           conditions:
             - conditionId: is_falsy
-              value: ${card_selector.value.innerHTML}
+              value: ${card_selector.value}
             - conditionId: is_falsy
-              value: ${no_item_selector.value.innerHTML}
+              value: ${no_item_selector.value}
 
           then:
             do:
