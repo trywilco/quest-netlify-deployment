@@ -6,8 +6,8 @@ startFlow:
     params:
       person: head-of-rd
       messages:
-      - text: OK, so we set up everything, now we need to change the code accordingally, let's change the code to use the env variable we just set.
-      - text: :instruction[So please open a PR to make the production code to use the env var.]
+      - text: OK, so we set up everything and now we need to change the code accordingly. Let's change the code to use the env variable we just set.
+      - text: :instruction[Please open a PR to make the production code use the env var.]
         delay: 1500
 trigger:
   type: github_pr_lifecycle_status
@@ -28,31 +28,31 @@ trigger:
               paramsFramework:
                 node:
                   fileName: frontend/src/agent.js
-
+​
             then:
               do:
               - actionId: bot_message
                 params:
                   person: head-of-rd
                   messages:
-                  - text: Looking good! You can merge the PR now.
+                  - text: Looks good! You can merge the PR now.
               - actionId: github_pr_approve
                 params:
                   person: head-of-rd
                   message: |
-                           Looking good! You can merge the PR now.
-                           Oh, sweet! we also have a Netlify Deploy Preview where we can see our code before deploying it, how cool is this! 
+                           Looks good! You can merge the PR now.
+                           Oh, sweet! we also have a Netlify Deploy Preview where we can see our code before deploying it. How cool is this?! 
             else:
               - actionId: github_pr_reject
                 params:
                   person: devops
                   message: Are you sure you changed the right file?
-
+​
         github_pr_merged:
           do:
             - actionId: bot_message
               params:
                 person: head-of-rd
                 messages:
-                  - text: Well then, that’s it - that’s the end of this dib, we now have a Netlify app that is fully configured and ready to share.
+                  - text: Well then, that’s it - that’s the end of this dib. We now have a Netlify app that is fully configured and ready to share.
             - actionId: finish_step
