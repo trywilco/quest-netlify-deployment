@@ -14,7 +14,7 @@ startFlow:
             delay: 1000
           - text: You can configure it under `build settings` in the site settings.
             delay: 1000
-          - text: Once you configure it properly, trigger a new deploy, and you suppose to see the site working, let me know when you're ready
+          - text: :instruction[Once you configure it properly, trigger a new deploy], and you suppose to see the site working, let me know when you're ready
             delay: 1000
 trigger:
   type: user_message_to_head-of-rd
