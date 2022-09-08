@@ -57,7 +57,7 @@ trigger:
                 params:
                   person: head-of-rd
                   messages:
-                    - text: Umm... I tried to access [frontend app](https://${user.netlifyApp}.netlify.app) but didn’t get a valid response, try again.
+                    - text: Umm... I tried to access [frontend app](https://${user.netlifyApp}.netlify.app) but didn’t get a valid response, try again. Make sure to trigger a new deploy so changes will apply.
           else:
             do:
               - actionId: bot_message
