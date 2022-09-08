@@ -6,7 +6,7 @@ startFlow:
     params:
       person: head-of-rd
       messages:
-      - text: OK, so we set up everything and now we need to change the code accordingly. Let's change the code to use the env variable we just set.
+      - text: "OK, so we set up everything and now we need to change the code accordingly. Let's change the code to use the env variable we just set."
       - text: ":instruction[Please open a PR to make the production code use the env var.]"
         delay: 1500
 trigger:
@@ -17,29 +17,29 @@ trigger:
       cases:
         github_pr_opened:
           do:
-          - actionId: github_pr_comment
-            params:
-              person: head-of-rd
-              message: Checking now.
+            - actionId: github_pr_comment
+              params:
+                person: head-of-rd
+                message: Checking now.
         github_pr_workflow_complete_success:
           if:
             conditions:
-            - conditionId: github_is_file_modified
-              fileName: frontend/src/agent.js
+              - conditionId: github_is_file_modified
+                fileName: frontend/src/agent.js
 ​
             then:
               do:
-              - actionId: bot_message
-                params:
-                  person: head-of-rd
-                  messages:
-                  - text: Looks good! You can merge the PR now.
-              - actionId: github_pr_approve
-                params:
-                  person: head-of-rd
-                  message: |
-                           Looks good! You can merge the PR now.
-                           Oh, sweet! we also have a Netlify Deploy Preview where we can see our code before deploying it. How cool is this?! 
+                - actionId: bot_message
+                  params:
+                    person: head-of-rd
+                    messages:
+                    - text: Looks good! You can merge the PR now.
+                - actionId: github_pr_approve
+                  params:
+                    person: head-of-rd
+                    message: |
+                             Looks good! You can merge the PR now.
+                             Oh, sweet! we also have a Netlify Deploy Preview where we can see our code before deploying it. How cool is this?! 
             else:
               - actionId: github_pr_reject
                 params:
