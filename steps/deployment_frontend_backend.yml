@@ -7,7 +7,7 @@ startFlow:
       person: head-of-rd
       messages:
       - text: OK, so we set up everything and now we need to change the code accordingly. Let's change the code to use the env variable we just set.
-      - text: :instruction[Please open a PR to make the production code use the env var.]
+      - text: ":instruction[Please open a PR to make the production code use the env var.]"
         delay: 1500
 trigger:
   type: github_pr_lifecycle_status
