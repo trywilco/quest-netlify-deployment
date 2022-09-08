@@ -27,6 +27,6 @@ messages:
     person: head-of-rd
     messages:
       - text: If I may add, you did a beautiful job! You’ve probably earned a long coffee break, which will totally be deducted from your bonus but don’t let it stop you.
-        delay: 1000
+        delay: 1200
       - text: So, you know the drill - take your time, drink something, stretch your body, and [another project](${platform.home}) once you’re ready for your next assignment.
-        delay: 1300
+        delay: 1700
