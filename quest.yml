@@ -23,8 +23,3 @@ messages:
     person: head-of-rd
     messages:
       - text: Let me know when you are ready.
-  questFinished:
-    person: head-of-rd
-    messages:
-      - text: Amazing job. There’s so much we can achieve, so **[click here](${platform.home})** when you're ready for your next project :)
-        delay: 2500
