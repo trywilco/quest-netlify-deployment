@@ -10,13 +10,13 @@ startFlow:
       messages:
       - text: We now going to deploy our frontend to Netlify
       - text: Go create a new free account in Netlify (or use your exsiting one) and create a new site by choosing "Add new site" -> "Import an existing prject"
-        delay: 1000
+        delay: 2000
       - text: "Select to import code from Github, and choose our `${user.repoName}` repo."
-        delay: 1000
+        delay: 2500
       - text: We're going to configure the build settings in a minute, so you can skip it for now.
-        delay: 1000
+        delay: 1800
       - text: :instruction[Once you done, please send me your app name]
-        delay: 1000
+        delay: 2000
 trigger:
   type: user_message_to_head-of-rd
   flowNode:
@@ -37,7 +37,7 @@ trigger:
             person: head-of-rd
             messages:
             - text: Great, let's move on
-              delay: 1000
+              delay: 1500
         - actionId: finish_step
       else:
         do:
@@ -46,4 +46,4 @@ trigger:
             person: head-of-rd
             messages:
             - text: Looks like a wrong format, are you sure?
-              delay: 1000
+              delay: 1500
