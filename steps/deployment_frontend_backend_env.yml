@@ -6,10 +6,10 @@ startFlow:
     params:
       person: head-of-rd
       messages:
-      - text: Oh, looks like the app isn't connected to the right backend, take a look on the network tab.
-      - text: "We need to frontend to connect to the backend that we deployed: `https://${user.backendHerokuAppName}.herokuapp.com`"
+      - text: Oh, looks like the app isn't connected to the right backend. Take a look at the network tab.
+      - text: "We need the frontend to connect to the backend that we deployed: `https://${user.backendHerokuAppName}.herokuapp.com`"
         delay: 1500
-      - text: "The easiest way to do it is to use an env variable, in our case we'll use `BACKEND_URL` *(or something like that, maybe you should check the code)*"
+      - text: "The easiest way to do it is to use an env variable. In our case, we'll use `BACKEND_URL` *(or something like that, maybe you should check the code)*"
         delay: 2000
       - text: :instruction[Let me know once you set the env variable in the Netlify app settings.]
         delay: 1700
@@ -25,7 +25,7 @@ trigger:
             params:
               person: head-of-rd
               messages:
-              - text: Awsome, let's move to the next step
+              - text: Awsome, let's continue to the next step!
           - actionId: finish_step
       else:
         do:
