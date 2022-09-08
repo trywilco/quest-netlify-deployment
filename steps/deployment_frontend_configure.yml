@@ -35,13 +35,13 @@ trigger:
             params:
               url: https://${user.netlify.appName}.netlify.app
               selector: .card-title
-​
+
           - actionId: network_find_selector
             name: no_item_selector
             params:
               url: https://${user.netlify.appName}.netlify.app
               selector: .no-items
-​
+
         if:
           conditions:
             - conditionId: is_falsy
@@ -50,7 +50,7 @@ trigger:
             - conditionId: is_falsy
               params:
                 value: ${outputs.no_item_selector.value}
-​
+
           then:
             do:
               - actionId: bot_message
