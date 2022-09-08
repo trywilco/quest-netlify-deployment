@@ -14,7 +14,7 @@ startFlow:
             delay: 1000
           - text: You can configure it under `build settings` in the site settings.
             delay: 1000
-          - text: :instruction[Once you configure it properly, trigger a new deploy], and you suppose to see the site working, let me know when you're ready
+          - text: :instruction[Once you configure it properly, trigger a new deploy], and you suppose to see the site working, let me know when you're done and I'll check it out
             delay: 1000
 trigger:
   type: user_message_to_head-of-rd
@@ -28,7 +28,7 @@ trigger:
             params:
               person: head-of-rd
               messages:
-                - text: That was quick, let me check...
+                - text: That was quick, let me see...
                   delay: 1000
           - actionId: network_find_selector
             name: card_selector
@@ -57,14 +57,16 @@ trigger:
                 params:
                   person: head-of-rd
                   messages:
-                    - text: Umm... I tried to access [frontend app](https://${user.netlifyApp}.netlify.app) but didn’t get a valid response, try again. Make sure to trigger a new deploy so changes will apply.
+                    - text: Umm... I tried to access [frontend app](https://${user.netlifyApp}.netlify.app) but didn’t get a valid response, try again. 
+                    - text: Make sure to trigger a new deploy so changes will apply.
+                      delay: 1500
           else:
             do:
               - actionId: bot_message
                 params:
                   person: head-of-rd
                   messages:
-                    - text: Sweet, we have a first version of the app working, how quick was it right?!
+                    - text: Sweet, we have a first version of the app working, that was quick isn't it?!
               - actionId: finish_step
       else:
         do:
