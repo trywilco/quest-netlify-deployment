@@ -10,11 +10,11 @@ startFlow:
         person: head-of-rd
         messages:
           - text: So, as you've probably figured out by now, since we’re using a mono repo, we need to **tell Netlify how to build our frontend application**.
-          - text: Luckily for you, Netlify make it very easy for us to configure it.
+          - text: Luckily for you, Netlify makes it very easy for us to configure it.
             delay: 2000
           - text: You can configure it under `build settings` in the site settings.
             delay: 1500
-          - text: :instruction[Once you configure it properly, trigger a new deploy], and you suppose to see the site working, let me know when you're done and I'll check it out
+          - text: :instruction[Once you configure it properly, trigger a new deploy], and you should see the site working. Let me know when you're done and I'll check it.
             delay: 2200
 trigger:
   type: user_message_to_head-of-rd
@@ -35,13 +35,13 @@ trigger:
             params:
               url: https://${user.netlify.appName}.netlify.app
               selector: .card-title
-
+​
           - actionId: network_find_selector
             name: no_item_selector
             params:
               url: https://${user.netlify.appName}.netlify.app
               selector: .no-items
-
+​
         if:
           conditions:
             - conditionId: is_falsy
@@ -50,15 +50,15 @@ trigger:
             - conditionId: is_falsy
               params:
                 value: ${outputs.no_item_selector.value}
-
+​
           then:
             do:
               - actionId: bot_message
                 params:
                   person: head-of-rd
                   messages:
-                    - text: Umm... I tried to access [frontend app](https://${user.netlify.appName}.netlify.app) but didn’t get a valid response, try again. 
-                    - text: Make sure to trigger a new deploy so changes will apply.
+                    - text: Umm... I tried to access [frontend app](https://${user.netlify.appName}.netlify.app) but didn’t get a valid response. Please try again. 
+                    - text: Make sure to trigger a new deploy to apply your changes.
                       delay: 2200
           else:
             do:
@@ -66,7 +66,7 @@ trigger:
                 params:
                   person: head-of-rd
                   messages:
-                    - text: Sweet, we have a first version of the app working, that was quick isn't it?!
+                    - text: Sweet, we have a first version of the app working. That was quick, wasn't it?!
               - actionId: finish_step
       else:
         do:
