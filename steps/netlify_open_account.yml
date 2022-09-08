@@ -11,11 +11,11 @@ startFlow:
       - text: We now going to deploy our frontend to Netlify
       - text: Go create a new free account in Netlify (or use your exsiting one) and create a new site by choosing "Add new site" -> "Import an existing prject"
         delay: 1000
-      - text: "We're going to use our exiting code so import and exiting project from Github, and choose our `${user.repoName}` repo."
+      - text: "Select to import code from Github, and choose our `${user.repoName}` repo."
         delay: 1000
       - text: We're going to configure the build settings in a minute, so you can skip it for now.
         delay: 1000
-      - text: Once you done, please send me your app name
+      - text: :instruction[Once you done, please send me your app name]
         delay: 1000
 trigger:
   type: user_message_to_head-of-rd
