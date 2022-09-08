@@ -8,7 +8,7 @@ startFlow:
       messages:
       - text: OK, so we set up everything, now we need to change the code accordingally, let's change the code to use the env variable we just set.
       - text: :instruction[So please open a PR to make the production code to use the env var.]
-        delay: 1000
+        delay: 1500
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
