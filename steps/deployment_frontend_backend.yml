@@ -2,13 +2,13 @@ id: deployment_frontend_backend
 hints: []
 startFlow:
   do:
-  - actionId: bot_message
-    params:
-      person: head-of-rd
-      messages:
-      - text: "OK, so we set up everything and now we need to change the code accordingly. Let's change the code to use the env variable we just set."
-      - text: ":instruction[Please open a PR to make the production code use the env var.]"
-        delay: 1500
+    - actionId: bot_message
+      params:
+        person: head-of-rd
+        messages:
+        - text: "OK, so we set up everything and now we need to change the code accordingly. Let's change the code to use the env variable we just set."
+        - text: ":instruction[Please open a PR to make the production code use the env var.]"
+          delay: 1500
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -26,7 +26,7 @@ trigger:
             conditions:
               - conditionId: github_is_file_modified
                 params:
-                  fileName: frontend/src/agent.js
+                  fileName: "frontend/src/agent.js"
 ​
             then:
               do:
