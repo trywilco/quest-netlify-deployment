@@ -33,13 +33,13 @@ trigger:
           - actionId: network_find_selector
             name: card_selector
             params:
-              url: https://${user.netlifyApp}.netlify.app
+              url: https://${user.netlify.appName}.netlify.app
               selector: .card-title
 
           - actionId: network_find_selector
             name: no_item_selector
             params:
-              url: https://${user.netlifyApp}.netlify.app
+              url: https://${user.netlify.appName}.netlify.app
               selector: .no-items
 
         if:
@@ -57,7 +57,7 @@ trigger:
                 params:
                   person: head-of-rd
                   messages:
-                    - text: Umm... I tried to access [frontend app](https://${user.netlifyApp}.netlify.app) but didn’t get a valid response, try again. 
+                    - text: Umm... I tried to access [frontend app](https://${user.netlify.appName}.netlify.app) but didn’t get a valid response, try again. 
                     - text: Make sure to trigger a new deploy so changes will apply.
                       delay: 2200
           else:
