@@ -25,9 +25,7 @@ trigger:
           if:
             conditions:
             - conditionId: github_is_file_modified
-              paramsFramework:
-                node:
-                  fileName: frontend/src/agent.js
+              fileName: frontend/src/agent.js
 ​
             then:
               do:
