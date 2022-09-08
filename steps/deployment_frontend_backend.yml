@@ -7,7 +7,7 @@ startFlow:
       person: head-of-rd
       messages:
       - text: OK, so we set up everything, now we need to change the code accordingally, let's change the code to use the env variable we just set.
-      - text: So let's change the frontend code and open a PR.
+      - text: :instruction[So please open a PR to make the production code to use the env var.]
         delay: 1000
 trigger:
   type: github_pr_lifecycle_status
@@ -54,9 +54,5 @@ trigger:
               params:
                 person: head-of-rd
                 messages:
-                  - text: Well then, that’s it - that’s the end of this dib.
-                  - text: If I may add, you did a beautiful job! You’ve probably earned a long coffee break, which will totally be deducted from your bonus but don’t let it stop you.
-                    delay: 1700
-                  - text: So, you know the drill - take your time, drink something, stretch your body, and [another project](${platform.home}) once you’re ready for your next assignment.
-                    delay: 1300
+                  - text: Well then, that’s it - that’s the end of this dib, we now have a Netlify app that is fully configured and ready to share.
             - actionId: finish_step
