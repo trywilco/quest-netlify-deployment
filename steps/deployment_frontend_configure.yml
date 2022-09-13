@@ -17,7 +17,9 @@ startFlow:
           - text: :instruction[Once you configure it properly, trigger a new deploy], and you should see the site working. Let me know when you're done and I'll check it.
             delay: 2200
 trigger:
-  type: user_message_to_head-of-rd
+  type: user_message
+  params:
+    person: head-of-rd
   flowNode:
     if:
       conditions:

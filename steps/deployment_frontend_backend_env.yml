@@ -14,7 +14,9 @@ startFlow:
       - text: :instruction[Let me know once you set the env variable in the Netlify app settings.]
         delay: 1700
 trigger:
-  type: user_message_to_head-of-rd
+  type: user_message
+  params:
+    person: head-of-rd
   flowNode:
     if:
       conditions:
